@@ -1,7 +1,16 @@
-[gd_scene load_steps=4 format=1]
+[gd_scene load_steps=14 format=1]
 
 [ext_resource path="res://scripts/menu.gd" type="Script" id=1]
 [ext_resource path="res://assets/images/colors/black.jpeg" type="Texture" id=2]
+[ext_resource path="res://assets/images/buttons/info-normal.png" type="Texture" id=3]
+[ext_resource path="res://assets/images/buttons/info-clicked.png" type="Texture" id=4]
+[ext_resource path="res://assets/images/buttons/menu-normal.png" type="Texture" id=5]
+[ext_resource path="res://assets/images/buttons/menu-clicked.png" type="Texture" id=6]
+[ext_resource path="res://assets/images/buttons/menu-block.png" type="Texture" id=7]
+[ext_resource path="res://assets/images/buttons/lbutton-normal.png" type="Texture" id=8]
+[ext_resource path="res://assets/images/buttons/lbutton-clicked.png" type="Texture" id=9]
+[ext_resource path="res://assets/images/buttons/lbutton-block.png" type="Texture" id=10]
+[ext_resource path="res://assets/fonts/MedievalSharp/MedievalSharp.ttf" type="DynamicFontData" id=11]
 
 [sub_resource type="Animation" id=1]
 
@@ -14,6 +23,13 @@ tracks/0/path = NodePath("black:visibility/opacity")
 tracks/0/interp = 1
 tracks/0/imported = false
 tracks/0/keys = { "times":FloatArray( 0, 1 ), "transitions":FloatArray( 1, 1 ), "update":0, "values":[ 1.0, 0.0 ] }
+
+[sub_resource type="DynamicFont" id=2]
+
+font/size = 45
+font/use_mipmaps = false
+font/use_filter = false
+font/font = ExtResource( 11 )
 
 [node name="menu" type="Node2D"]
 
@@ -45,6 +61,205 @@ wait_time = 1.0
 one_shot = true
 autostart = true
 
+[node name="credits" type="TextureButton" parent="."]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 1150.0
+margin/top = 0.0
+margin/right = 1280.0
+margin/bottom = 139.0
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+textures/normal = ExtResource( 3 )
+textures/pressed = ExtResource( 4 )
+params/scale = Vector2( 0.6, 0.6 )
+
+[node name="menu" type="TextureButton" parent="."]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 130.0
+margin/bottom = 139.0
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+textures/normal = ExtResource( 5 )
+textures/pressed = ExtResource( 6 )
+textures/disabled = ExtResource( 7 )
+params/scale = Vector2( 0.6, 0.6 )
+
+[node name="shop_chest" type="TextureButton" parent="."]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 490.0
+margin/top = 0.0
+margin/right = 816.0
+margin/bottom = 145.0
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+textures/normal = ExtResource( 8 )
+textures/pressed = ExtResource( 9 )
+textures/disabled = ExtResource( 10 )
+params/scale = Vector2( 0.8, 0.8 )
+
+[node name="txt" type="Label" parent="shop_chest"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 320.0
+margin/bottom = 140.0
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0.142329, 0.134445, 0.386719, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+text = "Tienda/Cofre"
+align = 1
+valign = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+__meta__ = { "_edit_lock_":true }
+
+[node name="stats" type="TextureButton" parent="."]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 580.0
+margin/right = 326.0
+margin/bottom = 725.0
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+textures/normal = ExtResource( 8 )
+textures/pressed = ExtResource( 9 )
+textures/disabled = ExtResource( 10 )
+params/scale = Vector2( 0.8, 0.8 )
+
+[node name="txt" type="Label" parent="stats"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 320.0
+margin/bottom = 140.0
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0.142329, 0.134445, 0.386719, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+text = "Estadísticas"
+align = 1
+valign = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+__meta__ = { "_edit_lock_":true }
+
+[node name="upgrade" type="TextureButton" parent="."]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 500.0
+margin/top = 580.0
+margin/right = 826.0
+margin/bottom = 725.0
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+textures/normal = ExtResource( 8 )
+textures/pressed = ExtResource( 9 )
+textures/disabled = ExtResource( 10 )
+params/scale = Vector2( 0.8, 0.8 )
+
+[node name="txt" type="Label" parent="upgrade"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 320.0
+margin/bottom = 140.0
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0.142329, 0.134445, 0.386719, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+text = "Mejoras"
+align = 1
+valign = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+__meta__ = { "_edit_lock_":true }
+
+[node name="mapa" type="TextureButton" parent="."]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 950.0
+margin/top = 580.0
+margin/right = 1276.0
+margin/bottom = 725.0
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+textures/normal = ExtResource( 8 )
+textures/pressed = ExtResource( 9 )
+textures/disabled = ExtResource( 10 )
+params/scale = Vector2( 0.8, 0.8 )
+
+[node name="txt" type="Label" parent="mapa"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 320.0
+margin/bottom = 140.0
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0.142329, 0.134445, 0.386719, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+text = "Mapa"
+align = 1
+valign = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+__meta__ = { "_edit_lock_":true }
+
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
+
+[connection signal="pressed" from="shop_chest" to="." method="_on_shop_chest_pressed"]
+
+[connection signal="pressed" from="stats" to="." method="_on_stats_pressed"]
+
+[connection signal="pressed" from="upgrade" to="." method="_on_upgrade_pressed"]
+
+[connection signal="pressed" from="mapa" to="." method="_on_mapa_pressed"]
 
 
