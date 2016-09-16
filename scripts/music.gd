@@ -16,7 +16,7 @@ func select_music(name, offset = 0):
 	elif name == "boss_battle":
 		current_music = get_node("boss_battle")
 		current_music.play(offset)
-	elif name == "firs_intro":
+	elif name == "first_intro":
 		current_music = get_node("first_intro")
 		current_music.play(offset)
 	elif name == "intro":

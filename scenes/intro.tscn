@@ -1,13 +1,76 @@
-[gd_scene load_steps=2 format=1]
+[gd_scene load_steps=6 format=1]
 
-[ext_resource path="res://assets/images/colors/black.jpeg" type="Texture" id=1]
+[ext_resource path="res://scripts/intro.gd" type="Script" id=1]
+[ext_resource path="res://assets/images/colors/black.jpeg" type="Texture" id=2]
+[ext_resource path="res://assets/fonts/MedievalSharp/MedievalSharp.ttf" type="DynamicFontData" id=3]
+
+[sub_resource type="RectangleShape2D" id=2]
+
+custom_solver_bias = 0.0
+extents = Vector2( 13, 12.8936 )
+
+[sub_resource type="DynamicFont" id=1]
+
+font/size = 45
+font/use_mipmaps = false
+font/use_filter = false
+font/font = ExtResource( 3 )
 
 [node name="intro" type="Node2D"]
+
+script/script = ExtResource( 1 )
 
 [node name="background" type="Sprite" parent="."]
 
 transform/scale = Vector2( 40, 22.5 )
-texture = ExtResource( 1 )
+texture = ExtResource( 2 )
 centered = false
+
+[node name="Timer" type="Timer" parent="."]
+
+process_mode = 1
+wait_time = 0.05
+one_shot = false
+autostart = true
+
+[node name="area" type="Area2D" parent="."]
+
+input/pickable = true
+shapes/0/shape = SubResource( 2 )
+shapes/0/transform = Matrix32( 49.7308, 0, 0, 28.1923, 639.5, 359.5 )
+shapes/0/trigger = false
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+
+[node name="click_area" type="CollisionShape2D" parent="area"]
+
+transform/pos = Vector2( 639.5, 359.5 )
+transform/scale = Vector2( 49.7308, 28.1923 )
+shape = SubResource( 2 )
+trigger = false
+_update_shape_index = 0
+
+[node name="txt" type="Label" parent="."]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 1280.0
+margin/bottom = 720.0
+custom_fonts/font = SubResource( 1 )
+align = 1
+valign = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
+
+[connection signal="input_event" from="area" to="." method="_on_area_input_event"]
 
 

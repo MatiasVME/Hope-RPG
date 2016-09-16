@@ -73,7 +73,13 @@ func create_game_data():
 		player = {
 			name = "",
 			hp = 20,
-			mana = 10
+			mana = 10,
+			stats = {
+				strength = 5,
+				life = 5,
+				lucky = 5,
+				magic = 5
+			}
 		}
 	}
 	
@@ -95,7 +101,7 @@ func load_game_data():
 	# Verifica si el fichero no existe
 	if (!savegame.file_exists(PATH_GAME_DATA)):
 		return
-
+	
 	# Diccionario en el cual se va a almacenar los datos
 	var dict = {}
 	
