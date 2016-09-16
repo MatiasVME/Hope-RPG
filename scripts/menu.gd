@@ -14,7 +14,7 @@ func _on_upgrade_pressed():
 	print("todavía no se que hace el upgrade")
 
 func _on_mapa_pressed():
-	# En el caso de que este pasando el primer mundo lo dirije
+	# TODO: En el caso de que este pasando el primer mundo lo dirije
 	# a la primera pantalla de niveles. En el caso de que ya
 	# haya pasado más de un mundo lo dirige a la pantalla de
 	# worlds
